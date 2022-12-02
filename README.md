@@ -1,16 +1,18 @@
 # Python Bounce Project
 
-This starter project is a single python script that runs out of the file bounce.py. It
-creates an animation of a ball moving through a 2D space with matplotlib.
+This starter project is a single-file python script, bounce.py.
+It creates an animation of a ball moving through a 2D space with matplotlib.
 
 The project is already setup be run in one of two environments.
 
 It can be run directly from a locally installed python environment, or it can be run within a
 docker container. These two options are described below. You can choose whichever option works
-better given your existing environment.
+better, given your existing environment.
 
 
-## 1. You will need a version of python that is 3.7 or higher with a version of the matplotlib
+## 1. Running in a local Python Environement
+
+You will need a version of python that is 3.7 or higher with a version of the matplotlib
 installed that is version 3.2 or higher.
 
 If you simply run (from the working directory containing bounce.py)
@@ -22,9 +24,11 @@ $ python bounce.py
 You should see a matplotlib figure open, and the animation will play.
 
 
-## 2. You will need docker setup and ready to run. If you already have a docker install you can
-test it by running the following command
+## 2. Runing in a Docker container we supply
 
+You will need docker setup and ready to run. If you already have a docker installed,
+test it by running the following command (which should produce output similar to
+what is shown below).
 
 ```console
 $ docker run hello-world
@@ -54,23 +58,25 @@ For more examples and ideas, visit:
 
 ### Running the script in a docker container
 
-To run the script in a docker container, you will simply use our prebuilt image,
+To run the script, you will simply use our prebuilt image,
 on dockerhub, bmilne/pybounce
-(this image was built from the Dockerfile in this repo, if you are curious).
-It has an install of python 3.11 with matplotlib 3.6.5.
+(this image was built from the Dockerfile in this repo, if you are curious;
+it has an install of python 3.11 with matplotlib 3.6.5.)
 
 The Linux command to run the bouncy.py script is shown below. You need to run it
-from the directory that contains bounce.py
+from the directory that contains bounce.py.
+
 ```console
 $ docker run --rm -v `pwd`:"/bounce" bmilne/pybounce
 ```
 
-The command line options are --rm (telling docker to clean up the container when it exits)
-and the -v which mounts the current working directory as /bounce in the image.
-
 The script will produce a movie file, "bounce_out.mp4" in the same directory, which you can
 view with vlc or any other tool for viewing mp4's.
 
+If you are runing Docker on something other than Linux, you will likely need to adjust the
+command line that we show above. If, so the command line options are:
+* --rm (telling docker to clean up the container when it exits), not essential
+* -v [current-working-directory]:"/bounce" which mounts the current working directory to /bounce in the image. Essential!
 
 ## 2b. How to install and setup docker.
 
