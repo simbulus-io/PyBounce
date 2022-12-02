@@ -1,13 +1,13 @@
-# Python Bounce Project
+# Python Bounce
 
-This starter project is a single-file python script, bounce.py.
-It creates an animation of a ball moving through a 2D space with matplotlib.
+This project is a single-file python script, bounce.py.
+It creates a matplotlib animation of a ball moving through a 2D space.
 
-The project is already setup be run in one of two environments.
+The project is pre-setup be run in either of two environments.
 
-It can be run directly from a locally installed python environment, or it can be run within a
-docker container. These two options are described below. You can choose whichever option works
-better, given your existing environment.
+It can be run directly from a locally installed python environment, or it can be run
+within a docker container. Each of these two options are described below. You can choose
+whichever option works better, given your existing environment.
 
 
 ## 1. Running in a local Python environement
@@ -77,7 +77,7 @@ view with vlc or any other tool for viewing mp4's.
 
 ### Runnning on something other than Linux
 
-If you are runing Docker on something other than Linux, you will likely need to adjust the
+If you are runing Docker on a Mac or Windows, you will likely need to adjust the
 command line that we show above. If, so the command line options are:
 * --rm (telling docker to clean up the container when it exits), not essential
 * -v [current-working-directory]:"/bounce" which mounts the current working directory to /bounce in the image. Essential!
