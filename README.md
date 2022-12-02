@@ -10,7 +10,7 @@ docker container. These two options are described below. You can choose whicheve
 better, given your existing environment.
 
 
-## 1. Running in a local Python Environement
+## 1. Running in a local Python environement
 
 You will need a version of python that is 3.7 or higher with a version of the matplotlib
 installed that is version 3.2 or higher.
@@ -70,8 +70,12 @@ from the directory that contains bounce.py.
 $ docker run --rm -v `pwd`:"/bounce" bmilne/pybounce
 ```
 
+### Viewing the animation movie
+
 The script will produce a movie file, "bounce_out.mp4" in the same directory, which you can
 view with vlc or any other tool for viewing mp4's.
+
+### Runnning on something other than Linux
 
 If you are runing Docker on something other than Linux, you will likely need to adjust the
 command line that we show above. If, so the command line options are:
@@ -85,11 +89,13 @@ as described here:
 
 https://docs.docker.com/install/
 
-Then run the hello-world test describe in part 2.
+Test it by running the hello-world test describe in part 2.
 
 If you are in a Linux environment, you may want to add your user to the "docker" group
-so that you can run docker commands without SUDO. TO do this, and then _log out and log back in_:
+so that you can run docker commands without SUDO. To do this, run the following command
+and then _log out and log back in_:
 
 ```console
 $  sudo usermod -aG docker $USER
 ```
+
