@@ -14,20 +14,18 @@ def is_docker():
         os.path.isfile(path) and any('docker' in line for line in open(path))
     )
 
-
 # - - - General setup and constants - - - 
 
-# The Figure and axes that the animation will run in
-figure, axes = pyplt.subplots()
+figure, axes = pyplt.subplots() # figure & axes in which the animation will run
 figure.suptitle('Bounce!')
 
-# Some Constants
-duration =  9        # Duration of the animation in seconds
-fps      =  40       # Frames per second -- don't change
-dt       =  1.0/fps  # The time step for the animation -- don't change
+# Some constants and variables
+Duration =  9        # Duration of the animation in seconds
+FPS      =  40       # Frames per second -- don't change me
+dt       =  1.0/FPS  # The time step for the animation -- don't change me
 G        = -0.67     # The gravitational constant
 
-floor_slope = 0.00        # can be set positive or negative
+floor_slope = 0.20        # can be set positive or negative
 
 ball_radius = 0.05
 spotr = 0.6*ball_radius   # dist from center of ball to center of spot on ball
@@ -84,7 +82,7 @@ def animate(i):
    return [ball,spot,txt]  # list of animated objects that were updated
 
 
-ani = animation.FuncAnimation(figure, animate, np.arange(1, duration*fps),
+ani = animation.FuncAnimation(figure, animate, np.arange(1, Duration*FPS),
                               init_func=setup_stage,
                               interval=dt*1000, blit=True, repeat=False)
 
@@ -93,9 +91,9 @@ ani = animation.FuncAnimation(figure, animate, np.arange(1, duration*fps),
 if is_docker():
     fname = 'bounce_out.mp4'
     print (f'Encoding animation to {fname}')
-    ani.save('bounce_out.mp4', writer = animation.FFMpegWriter(fps=fps) )
+    ani.save('bounce_out.mp4', writer = animation.FFMpegWriter(fps=FPS) )
 else:
     pyplt.show(block=False)
-    pyplt.pause(duration+2.0);
+    pyplt.pause(Duration+2.0);
     
 
